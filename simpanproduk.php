@@ -4,15 +4,15 @@ $username = "root";
 $password = "";
 $database = "elektronik";
 
-// bikin koneksi
+
 $koneksi = new mysqli($server, $username, $password, $database);
 
-// cek koneksi
+
 if ($koneksi->connect_errno) {
     exit("Koneksi gagal: " . $koneksi->connect_error);
 }
 
-// ambil data dari form
+
 $nama        = $_POST['nama'] ?? '';
 $harga       = $_POST['harga'] ?? '';
 $kategori    = $_POST['kategori'] ?? '';
@@ -33,7 +33,7 @@ $sql = "INSERT INTO produk (nama, harga, kategori, spesifikasi, merek, deskripsi
 $query = $koneksi->prepare($sql);
 $query->bind_param("sisssss", $nama, $harga, $kategori, $specText, $merek, $deskripsi, $hashedvoucher);
 
-// eksekusi query
+
 if ($query->execute()) {
     echo "<h2>Data produk berhasil ditambahkan!</h2>";
 } else {
@@ -43,3 +43,4 @@ if ($query->execute()) {
 // tutup koneksi
 $query->close();
 $koneksi->close();
+
