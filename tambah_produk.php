@@ -3,7 +3,6 @@ require_once 'form.php';
 
 $form = new Form('simpanproduk.php', 'Simpan Produk');
 
-// Tambah styling biar lebih enak dilihat
 echo "
 <style>
     body {
@@ -72,6 +71,7 @@ $form->addField('kategori', 'Kategori:', 'select', ['Smartphone', 'Laptop', 'TV'
 $form->addField('spesifikasi', 'Spesifikasi:', 'checkbox', ['WiFi', 'Bluetooth', 'GPS', 'NFC']);
 $form->addField('merek', 'Merek:', 'text', [], true);
 $form->addField('deskripsi', 'Deskripsi:', 'textarea', [], true);
-$form->addField('voucher', 'Voucher:', 'voucher', [], true); // tambahan voucher
+$form->addField('voucher', 'Voucher:', 'voucher', [], true);
 
 $form->displayForm();
+
